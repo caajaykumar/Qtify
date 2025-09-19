@@ -21,11 +21,15 @@ function Section({
     return items.slice(0, initialLimit)
   }, [items, expanded, initialLimit])
 
+  // stable id for aria-labelledby
+  const headingId = `section-title-${String(title).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
+  const cardsTestId = `section-${String(title).toLowerCase().replace(/[^a-z0-9]+/g, '-')}-cards`
+
   return (
-    <section className="section-container">
+    <section className="section-container" aria-labelledby={headingId} role="region">
       {/* Section Header */}
       <div className="section-header">
-        <h2 className="section-title">{title}</h2>
+        <h2 className="section-title" id={headingId}>{title}</h2>
         {items.length > initialLimit && (
           <button
             className="expand-button"
@@ -63,13 +67,13 @@ function Section({
       {/* Cards Grid or Carousel */}
       {!loading && !error && (
         expanded ? (
-          <div className="cards-grid">
+          <div className="cards-grid" data-testid={cardsTestId}>
             {visibleItems.map((item) => (
               <Card key={item.id} item={item} type={type} />
             ))}
           </div>
         ) : (
-          <Carousel>
+          <Carousel slidesPerView={4}>
             {visibleItems.map((item) => (
               <div key={item.id}>
                 <Card item={item} type={type} />

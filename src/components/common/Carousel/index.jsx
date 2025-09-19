@@ -30,30 +30,32 @@ export default function Carousel({
 
   return (
     <div className={`relative ${className}`}>
-      {/* Nav Buttons */}
-      {!atStart && (
-        <button
-          ref={prevRef}
-          className="absolute -left-3 top-1/2 -translate-y-1/2 z-10"
-          aria-label="Previous"
-        >
-          <LeftArrow />
-        </button>
-      )}
+      {/* Nav Buttons - always rendered for testability */}
+      <button
+        ref={prevRef}
+        className={`absolute -left-3 top-1/2 -translate-y-1/2 z-10 ${atStart ? 'opacity-40 pointer-events-none' : ''}`}
+        aria-label="Previous"
+        aria-disabled={atStart}
+        data-testid="carousel-prev"
+        type="button"
+      >
+        <LeftArrow />
+      </button>
 
-      {!atEnd && (
-        <button
-          ref={nextRef}
-          className="absolute -right-3 top-1/2 -translate-y-1/2 z-10"
-          aria-label="Next"
-        >
-          <RightArrow />
-        </button>
-      )}
+      <button
+        ref={nextRef}
+        className={`absolute -right-3 top-1/2 -translate-y-1/2 z-10 ${atEnd ? 'opacity-40 pointer-events-none' : ''}`}
+        aria-label="Next"
+        aria-disabled={atEnd}
+        data-testid="carousel-next"
+        type="button"
+      >
+        <RightArrow />
+      </button>
 
       <Swiper
         modules={[Navigation, Keyboard, A11y, FreeMode]}
-        freeMode={{ enabled: true, momentum: true }}
+        freeMode={{ enabled: false }}
         keyboard={{ enabled: true, onlyInViewport: true }}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}

@@ -9,7 +9,7 @@ function Card({ item, type = 'album' }) {
   const metricLabel = type === 'song' ? 'Likes' : 'Follows'
 
   return (
-    <div className="album-card-wrapper">
+    <div className="album-card-wrapper" data-testid="album-card">
       <div className="album-card">
         <div className="album-image">
           {image ? (

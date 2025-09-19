@@ -105,23 +105,24 @@
   }
   
   .feedback-button {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
+    background-color: #121212;
+    color: #34C94B;
+    /* border: 2px solid white; */
     padding: 8px 20px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
   }
   
-  .feedback-button:hover {
+  /* .feedback-button:hover {
     background-color: white;
     color: #1db954;
     transform: translateY(-1px);
-  }
+  } */
   
   /* Responsive Design */
   @media (max-width: 768px) {

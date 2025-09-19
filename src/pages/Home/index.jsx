@@ -1,8 +1,11 @@
 import Navbar from '@/components/common/Navbar/index.jsx'
 import Section from '@/components/common/Section'
+import Hero from '@/components/common/Hero'
 import { useEffect } from 'react'
 import { useAlbumStore } from '@/store/albumStore'
 import SongsSection from '@/components/sections/SongsSection'
+import FAQSection from '@/components/sections/FAQSection'
+import PlayerBar from '@/components/sections/PlayerBar'
 
 export default function Home() {
   const {
@@ -24,6 +27,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#121212] text-white ">
       <Navbar />
+      {/* Hero banner */}
+      <Hero />
       <main className="px-4 sm:px-6 lg:px-8 py-6 space-y-10">
         <Section
           title="Top Albums"
@@ -47,6 +52,21 @@ export default function Home() {
 
         {/* Songs section (always carousel with genre tabs) */}
         <SongsSection />
+        {/* FAQs */}
+        <div className="pt-4">
+          <FAQSection />
+        </div>
+        {/* Player Bar */}
+        <div className="pt-2">
+        <PlayerBar
+  title="Song name"
+  subtitle="Album name"
+  artwork="/images/album.png"
+  duration={218}
+  initialProgress={38}
+  audioSrc="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+/>
+        </div>
       </main>
     </div>
   )

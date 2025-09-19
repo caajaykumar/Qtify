@@ -1,0 +1,220 @@
+/* Card Container */
+.album-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    height: 260px;
+    position: relative;
+  }
+  
+  .album-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Image Section */
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .album-card:hover .card-image {
+    transform: scale(1.05);
+  }
+  
+  /* No Image Placeholder */
+  .no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+  }
+  
+  .no-image-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    opacity: 0.5;
+  }
+  
+  .no-image-text {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  /* Label Badge */
+  .music-label {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: #34C94B;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+  
+  /* Play Button Overlay */
+  .play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+  }
+  
+  .album-card:hover .play-overlay {
+    opacity: 1;
+  }
+  
+  .play-button {
+    background: #34C94B;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(52, 201, 75, 0.4);
+  }
+  
+  .play-button:hover {
+    background: #2ba83f;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(52, 201, 75, 0.6);
+  }
+  
+  .play-icon {
+    width: 20px;
+    height: 20px;
+    color: white;
+    margin-left: 2px;
+  }
+  
+  /* Content Section */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+    height: 30%;
+  }
+  
+  .card-title {
+    color: #191414;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    letter-spacing: -0.2px;
+  }
+  
+  .card-artists {
+    color: #666;
+    font-size: 11px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Footer Section */
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  
+  .follow-button {
+    background: none;
+    border: none;
+    color: #757575;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+  
+  .follow-button:hover {
+    color: #34C94B;
+  }
+  
+  .follow-button.following {
+    color: #34C94B;
+  }
+  
+  .follow-count {
+    font-weight: 600;
+  }
+  
+  .card-year {
+    color: #999;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 640px) {
+    .album-card {
+      height: 240px;
+    }
+    
+    .card-title {
+      font-size: 13px;
+    }
+    
+    .card-artists {
+      font-size: 10px;
+    }
+    
+    .play-button {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .play-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  

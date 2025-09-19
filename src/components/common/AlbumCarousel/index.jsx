@@ -76,17 +76,20 @@ export default function AlbumCarousel({ children, step = 2, visibleCount = 8 }) 
           style={{ transform: `translateX(${translateX}px)` }}
           data-testid="album-carousel-track"
         >
-          {items.map((child, idx) => (
-            <div
-              key={idx}
-              className="album-carousel-item"
-              style={{ width: cardWidth, marginRight: idx === items.length - 1 ? 0 : gap }}
-              data-index={idx}
-              aria-hidden={idx < index || idx >= index + effectiveVisible}
-            >
-              {child}
-            </div>
-          ))}
+          {items.map((child, idx) => {
+            const hidden = idx < index || idx >= index + effectiveVisible
+            return (
+              <div
+                key={idx}
+                className="album-carousel-item"
+                style={{ width: cardWidth, marginRight: idx === items.length - 1 ? 0 : gap, visibility: hidden ? 'hidden' : 'visible' }}
+                data-index={idx}
+                aria-hidden={hidden}
+              >
+                {child}
+              </div>
+            )
+          })}
         </div>
       </div>
 

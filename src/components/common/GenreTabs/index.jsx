@@ -10,8 +10,8 @@ export default function GenreTabs({ genres = [], value = 'all', onChange = () =>
       value={value}
       onChange={(e, v) => onChange(v)}
       variant="scrollable"
-      scrollButtons
-      allowScrollButtonsMobile
+      scrollButtons={false}
+      allowScrollButtonsMobile={false}
       sx={{
         minHeight: 40,
         '& .MuiTabs-scroller': { padding: '4px 0' },

@@ -25,6 +25,7 @@ function Section({
   // stable id for aria-labelledby
   const headingId = `section-title-${String(title).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
   const cardsTestId = `section-${String(title).toLowerCase().replace(/[^a-z0-9]+/g, '-')}-cards`
+  const carouselTestId = `section-${String(title).toLowerCase().replace(/[^a-z0-9]+/g, '-')}-carousel`
 
   return (
     <section className="section-container" aria-labelledby={headingId} role="region">
@@ -74,11 +75,13 @@ function Section({
             ))}
           </div>
         ) : type === 'album' ? (
-          <AlbumCarousel step={1} visibleCount={8}>
-            {items.map((item) => (
-              <Card key={item.id} item={item} type={type} />
-            ))}
-          </AlbumCarousel>
+          <div data-testid={carouselTestId}>
+            <AlbumCarousel step={1} visibleCount={8}>
+              {items.map((item) => (
+                <Card key={item.id} item={item} type={type} />
+              ))}
+            </AlbumCarousel>
+          </div>
         ) : (
           <Carousel>
             {visibleItems.map((item) => (

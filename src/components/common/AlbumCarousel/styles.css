@@ -1,0 +1,50 @@
+.album-carousel {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.album-carousel-viewport {
+  overflow: hidden;
+  /* leave room for nav buttons overlapping */
+  margin: 0 44px;
+}
+
+.album-carousel-track {
+  display: flex;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.album-carousel-item {
+  flex: 0 0 auto;
+}
+
+.album-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: #34C94B;
+  color: #ffffff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.2s ease;
+}
+
+.album-carousel-btn.left { left: 8px; }
+.album-carousel-btn.right { right: 8px; }
+
+.album-carousel-btn:hover { transform: translateY(-50%) scale(1.04); }
+.album-carousel-btn:active { transform: translateY(-50%) scale(0.98); }
+
+.album-carousel-btn.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

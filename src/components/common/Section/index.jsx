@@ -1,6 +1,7 @@
 import { useState, useMemo, memo } from 'react'
 import Card from '@/components/common/Card'
 import Carousel from '@/components/common/Carousel'
+import AlbumCarousel from '@/components/common/AlbumCarousel'
 
 import './section.css'
 import CardSkeleton from '@/components/common/Skeletons/CardSkeleton'
@@ -72,8 +73,14 @@ function Section({
               <Card key={item.id} item={item} type={type} />
             ))}
           </div>
+        ) : type === 'album' ? (
+          <AlbumCarousel step={1} visibleCount={8}>
+            {items.map((item) => (
+              <Card key={item.id} item={item} type={type} />
+            ))}
+          </AlbumCarousel>
         ) : (
-          <Carousel slidesPerView={4}>
+          <Carousel>
             {visibleItems.map((item) => (
               <div key={item.id}>
                 <Card item={item} type={type} />
